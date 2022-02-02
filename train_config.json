@@ -1,0 +1,40 @@
+{
+    "seed": 0,
+    "save_dir" : "./results/",
+    "data_root" : "./data",
+    "train_dataset" : {"name" : "CustomDataset",
+                       "args" : {"mode" : "train",
+                                 "validation_ratio" : 0.1}
+                      },
+    "val_dataset" : {"name" : "CustomDataset",
+                     "args" : {"mode" : "validation",
+                               "validation_ratio" : 0.1}
+                    },
+    "train_dataloader": {"args" : {"batch_size" : 8,
+                                   "num_workers" : 4,
+                                   "shuffle" : true}},
+    "val_dataloader" : {"args" : {"batch_size" : 8,
+                                  "num_workers" : 4,
+                                  "shuffle" : false}},
+    "train_augmentation": "Augmentation",
+    "val_augmentation": "BaseAugmentation",
+    "num_epochs": 100,
+    "img_encoder" : "SWINEncoder",
+    "csv_encoder" : "TimeSeriesEncoder",
+    "model" : "Model",
+    "resume_from": false,
+    "checkpoint_path": "",
+    "criterion": {"name" : "FocalLoss",
+                  "args": {
+                      "weight": null,
+                      "gamma": 2,
+                      "reduction" : "mean"}},
+
+    "optimizer": {"name" : "Adam",
+                  "args" : {"lr" : 0.001}},
+    "scheduler":{"name":"ReduceLROnPlateau",
+        "args":{"mode" : "max",
+                "factor" : 0.9,
+                "patience" : 3}},
+    "fp16": false
+}
