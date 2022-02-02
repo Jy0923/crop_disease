@@ -1,0 +1,9 @@
+albumentations==1.0.3
+numpy
+pandas==1.4.0
+scikit-image
+scikit-learn==1.0.2
+torch
+torchvision
+timm==0.5.4
+tqdm==4.62.3
